@@ -1,8 +1,8 @@
 {
-    "name": "˹sifra ˼ [V2]",
-    "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
-    "logo": "https://telegra.ph/file/312bf3022b3f673cdf374.jpg",
-    "keywords": [
+  "name": "˹sifra ˼ [V2]",
+  "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
+  "logo": "https://telegra.ph/file/312bf3022b3f673cdf374.jpg",
+  "keywords": [
     "python3",
     "telegram",
     "bot",
@@ -10,64 +10,44 @@
     "MusicBot",
     "telegram-bot",
     "pyrogram"
-    ],
-    "env": {
-      "API_ID": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "",
-        "required": false
-      },
-      "API_HASH": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "",
-        "required": false
-      },
-      "BOT_TOKEN": {
-        "description": "A Bot's token from Botfather",
-        "value": "",
-        "required": false
-      },
-      "MONGO_DB_URI": {
-        "description": "Get a mongodb url from https://cloud.mongodb.com.",
-        "value": "",
-        "required": false
-      },
-      "OWNER_ID": {
-        "description": "The user id of user whom you would like to add as OWNER.",
-        "value": "",
-        "required": false
-      },
-      "STRING_SESSION": {
-        "description": "A Pyrogram v2 String Session from @Shsusu_bot on Telegram.",
-        "value": "",
-        "required": false
-      },
-      "HEROKU_API_KEY": {
-        "description": "Your Heroku account's API key",
-        "value": "",
-        "required": false
-      },
-      "HEROKU_APP_NAME": {
-        "description": "Your heroku app name",
-        "value": "",
-        "required": false
-      },
-      "LOGGER_ID": {
-        "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
-        "value": "",
-        "required": false
-      }
+  ],
+  "env": {
+    "API_ID": {
+      "description": "Get this value from https://my.telegram.org",
+      "required": true
     },
-    "buildpacks": [
-          {
-              "url": "heroku/python"
-          },
-          {
-              "url": "heroku/nodejs"
-          },
-          {
-              "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-          }
-      ],
-      "stack": "container"
-  }
+    "API_HASH": {
+      "description": "Get this value from https://my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "A Bot's token from Botfather",
+      "required": true
+    },
+    "MONGO_DB_URI": {
+      "description": "MongoDB URL from https://cloud.mongodb.com",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "The user ID of the bot owner",
+      "required": true
+    },
+    "STRING_SESSION": {
+      "description": "Pyrogram v2 String Session (use @Shsusu_bot to generate)",
+      "required": true
+    },
+    "LOGGER_ID": {
+      "description": "Log Group ID (must be a group where the bot is admin)",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Optional: Your Heroku account's API key",
+      "required": false
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Optional: Your Heroku app name",
+      "required": false
+    }
+  },
+  "stack": "container"
+}
