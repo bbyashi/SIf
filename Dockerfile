@@ -1,30 +1,18 @@
-# Use a stable Debian-based Python + NodeJS image
-FROM nikolaik/python-nodejs:python3.10-nodejs19-bullseye
 
-# Set working directory
-WORKDIR /app
+FROM nikolaik/python-nodejs:python3.10-nodejs19
 
-# Install system dependencies
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-       ffmpeg \
-       git \
-       curl \
-       wget \
-       build-essential \
-       python3-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list && \
+    sed -i '/security.debian.org/d' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends ffmpeg aria2 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Copy project files
 COPY . /app/
+WORKDIR /app/
 
-# Upgrade pip and install Python requirements
-RUN pip3 install --no-cache-dir --upgrade pip \
-    && pip3 install --no-cache-dir -r requirements.txt
+RUN python -m pip install --no-cache-dir --upgrade pip
+RUN pip3 install --no-cache-dir --upgrade --requirement requirements.txt
 
-# Environment variable for NodeJS
-ENV NODE_OPTIONS=--openssl-legacy-provider
+CMD bash start
 
-# Start the bot
-CMD ["bash", "start"]
