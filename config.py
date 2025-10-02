@@ -23,7 +23,7 @@ SONG_DOWNLOAD_DURATION = int(
 
 LOGGER_ID = int(getenv("LOGGER_ID", "-1001956979385"))
 
-OWNER_ID = int(getenv("OWNER_ID", 6999372290))
+OWNER_ID = int(getenv("OWNER_ID", 8111174619))
 
 BOT_USERNAME = getenv("BOT_USERNAME" , "sifrababybot")
 
@@ -35,7 +35,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 API_URL = getenv("API_URL", 'https://api.thequickearn.xyz') #youtube song url
 VIDEO_API_URL = getenv("VIDEO_API_URL", 'https://api.video.thequickearn.xyz')
-API_KEY = getenv("API_KEY", None) # youtube song api key, generate free key or buy paid plan from panel.thequickearn.xyz
+API_KEY = getenv("API_KEY", "30DxNexGenBots7fG9kL") # youtube song api key, generate free key or buy paid plan from panel.thequickearn.xyz
 
 
 UPSTREAM_REPO = getenv(
@@ -128,4 +128,5 @@ if SUPPORT_CHAT:
         raise SystemExit(
             "[ERROR] - Your SUPPORT_CHAT url is wrong. Please ensure that it starts with https://"
         )
+
 
